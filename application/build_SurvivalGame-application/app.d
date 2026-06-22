@@ -203,10 +203,9 @@ build_SurvivalGame-application/app.o: sources/app/app.cpp \
  sources/networks/net/link/link_phy.h \
  sources/networks/net/link/link_config.h \
  sources/networks/net/link/hal/link_hal.h sources/app/task_life.h \
- sources/app/task_if.h sources/app/task_rf24_if.h \
- sources/app/task_uart_if.h sources/app/task_display.h \
- sources/common/screen_manager.h sources/common/view_render.h \
- sources/common/view_item.h \
+ sources/app/task_if.h sources/app/task_uart_if.h \
+ sources/app/task_display.h sources/common/screen_manager.h \
+ sources/common/view_render.h sources/common/view_item.h \
  sources/driver/Adafruit_oled_drv/Adafruit_oled_drv.h \
  sources/driver/Adafruit_oled_drv/Adafruit_GFX.h \
  sources/platform/stm32l/arduino/cores/Arduino.h \
@@ -230,129 +229,8 @@ build_SurvivalGame-application/app.o: sources/app/app.cpp \
  sources/networks/mbmaster-v2.9.6/mbmaster/include/common/mbportlayer.h \
  sources/app/screens/scr_lhio404_io_device.h \
  sources/app/screens/scr_peashooter.h \
- sources/app/screens/screens_bitmap.h sources/app/task_zigbee.h \
- sources/sys/sys_irq.h \
+ sources/app/screens/screens_bitmap.h sources/sys/sys_irq.h \
  sources/platform/stm32l/arduino/libraries/SPI/SPI.h \
  sources/platform/stm32l/arduino/cores/WString.h \
  sources/platform/stm32l/arduino/cores/HardwareSerial.h \
- sources/platform/stm32l/arduino/cores/Stream.h \
- sources/libraries/ArduinoJson/ArduinoJson.h \
- sources/libraries/ArduinoJson/src/ArduinoJson.h \
- sources/libraries/ArduinoJson/src/ArduinoJson.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Namespace.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Configuration.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/version.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Array/ArrayRef.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Array/ArrayFunctions.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Collection/CollectionData.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Array/ArrayIterator.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/SlotFunctions.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/assert.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantData.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Misc/SerializedValue.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/StringAdapters.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Memory/MemoryPool.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Memory/Alignment.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Memory/StringSlot.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/mpl/max.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantSlot.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/gsl/not_null.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/conditional.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/enable_if.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/integral_constant.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_array.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_base_of.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_const.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_floating_point.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_integral.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_same.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_signed.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/is_unsigned.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/make_unsigned.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/type_identity.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/remove_const.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/type_traits/remove_reference.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantContent.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/Float.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/Integer.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/ConstRamStringAdapter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/safe_strcmp.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/RamStringAdapter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/SizedRamStringAdapter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/ArduinoStringAdapter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/FlashStringAdapter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/pgmspace.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/SizedFlashStringAdapter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/convertNumber.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/FloatTraits.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/alias_cast.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/math.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/limits.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantRef.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Misc/Visitable.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Operators/VariantOperators.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Operators/VariantCasts.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/attributes.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Operators/VariantComparisons.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Operators/VariantOr.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantAs.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Serialization/DynamicStringWriter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Serialization/WriterSelector.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Operators/VariantShortcuts.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Array/ArrayShortcuts.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Object/ObjectShortcuts.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantFunctions.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Object/ObjectRef.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Object/ObjectFunctions.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Object/ObjectIterator.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Object/Pair.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Strings/String.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Document/DynamicJsonDocument.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Document/BasicJsonDocument.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Document/JsonDocument.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Array/ElementProxy.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantTo.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Object/MemberProxy.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Document/StaticJsonDocument.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Array/ArrayImpl.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Array/Utilities.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Collection/CollectionImpl.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Object/ObjectImpl.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantAsImpl.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Variant/VariantImpl.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/parseFloat.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/parseNumber.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/ctype.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/parseInteger.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Json/JsonDeserializer.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/deserialize.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/ArduinoStreamReader.hpp \
- sources/platform/stm32l/arduino/cores/Stream.h \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/CharPointerReader.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/IteratorReader.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/DeserializationError.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/FlashStringReader.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/NestingLimit.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Deserialization/StdStreamReader.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/StringStorage/StringStorage.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/StringStorage/StringCopier.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Memory/StringBuilder.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/StringStorage/StringMover.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Json/EscapeSequence.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Json/Utf8.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Json/JsonSerializer.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Json/TextFormatter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Numbers/FloatParts.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Serialization/measure.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Serialization/DummyWriter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Serialization/serialize.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Serialization/StaticStringWriter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Serialization/PrintWriter.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Json/PrettyJsonSerializer.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/MsgPack/MsgPackDeserializer.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/MsgPack/endianess.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/Polyfills/utility.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/MsgPack/ieee754.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/MsgPack/MsgPackSerializer.hpp \
- sources/libraries/ArduinoJson/src/ArduinoJson/compatibility.hpp
+ sources/platform/stm32l/arduino/cores/Stream.h
