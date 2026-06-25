@@ -3,7 +3,7 @@
 
 #include "view_render.h"
 
-//scr_peashooter
-extern const unsigned char PROGMEM bitmap_peashooter [];
+// scr_welcome
+extern const unsigned char PROGMEM bitmap_dolphin[];
 
-#endif
+#endif //__SCREENS_BITMAP_H__

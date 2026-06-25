@@ -2,7 +2,8 @@
 
 using namespace std;
 
-#define MAX_BALL_DISPLAY	(16)
+#define MAX_BALL_DISPLAY (16)
+#define BALL_MOVE_STEP	 (2)
 
 class ball {
 	// rand from a to b
@@ -14,20 +15,20 @@ public:
 	ball() {
 		axis_x = 1;
 		axis_y = 1;
-		slope = (rand() % (31)) - 15;
+		slope  = (rand() % (31)) - 15;
 		radius = (rand() % (7)) + 6;
-		x = rand() % (LCD_WIDTH - radius);
-		y = rand() % (LCD_HEIGHT - radius);
+		x	   = radius + (rand() % (LCD_WIDTH - 2 * radius));
+		y	   = radius + (rand() % (LCD_HEIGHT - 2 * radius));
 	}
 
-	int distance(ball& __ball) {
+	int distance(ball &__ball) {
 		uint8_t dx, dy;
 		dx = abs(x - __ball.x);
 		dy = abs(y - __ball.y);
-		return sqrt(dx*dx + dy*dy);
+		return sqrt(dx * dx + dy * dy);
 	}
 
-	bool is_hit_to_other(ball& __ball) {
+	bool is_hit_to_other(ball &__ball) {
 		if ((radius + __ball.radius) <= distance(__ball)) {
 			return true;
 		}
@@ -37,31 +38,37 @@ public:
 	}
 
 	void moving() {
-		if( axis_x > 0) {
-			x = x + 2;
+		if (axis_x > 0) {
+			x = x + BALL_MOVE_STEP;
 		}
 		else {
-			x = x - 2;
+			x = x - BALL_MOVE_STEP;
 		}
 
 		if (axis_y > 0) {
-			y += 2 * atan(slope);
+			y += BALL_MOVE_STEP * atan(slope);
 		}
 		else {
-			y -= 2 * atan(slope);
+			y -= BALL_MOVE_STEP * atan(slope);
 		}
 
-		if (x > (LCD_WIDTH - radius) || x < radius) {
+		if (x > ((LCD_WIDTH - 1) - radius) || x < radius) {
 			axis_x = -axis_x;
 			if (x < radius) {
 				x = radius;
 			}
+			else if (x > ((LCD_WIDTH - 1) - radius)) {
+				x = (LCD_WIDTH - 1) - radius;
+			}
 		}
 
-		if (y > (LCD_HEIGHT - radius) || y < radius ) {
+		if (y > ((LCD_HEIGHT - 1) - radius) || y < radius) {
 			axis_y = -axis_y;
 			if (y < radius) {
 				y = radius;
+			}
+			else if (y > ((LCD_HEIGHT - 1) - radius)) {
+				y = (LCD_HEIGHT - 1) - radius;
 			}
 		}
 	}
@@ -87,13 +94,18 @@ view_screen_t scr_idle = {
 vector<ball> v_idle_ball;
 int ball::total;
 
+static void scr_idle_return_screen() {
+	timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE);
+	SCREEN_BACK();
+}
+
 void view_scr_idle() {
-	for(ball _ball : v_idle_ball) {
+	for (ball _ball : v_idle_ball) {
 		view_render.drawCircle(_ball.x, _ball.y, _ball.radius, 144);
 	}
 }
 
-void scr_idle_handle(ak_msg_t* msg) {
+void scr_idle_handle(ak_msg_t *msg) {
 	switch (msg->sig) {
 	case SCREEN_ENTRY: {
 		APP_DBG_SIG("SCREEN_ENTRY\n");
@@ -103,29 +115,27 @@ void scr_idle_handle(ak_msg_t* msg) {
 			v_idle_ball.push_back(new_ball);
 		}
 
+		timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_IDLE);
+
 		timer_set(AC_TASK_DISPLAY_ID, \
 				  AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE, \
 				  AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE_INTERAL, \
 				  TIMER_PERIODIC);
-	}
-		break;
+	} break;
 
 	case AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE: {
 		for (unsigned int i = 0; i < v_idle_ball.size(); i++) {
 			v_idle_ball[i].moving();
 		}
-	}
-		break;
+	} break;
 
-	case AC_DISPLAY_BUTON_MODE_RELEASED: {
-		APP_DBG_SIG("AC_DISPLAY_BUTON_MODE_RELEASED\n");
-		timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE);
-		SCREEN_TRAN(scr_es35sw_th_sensor_handle, &scr_es35sw_th_sensor);
-	}
-		break;
+	case AC_DISPLAY_BUTON_MODE_PRESSED: {
+		APP_DBG_SIG("AC_DISPLAY_BUTON_MODE_PRESSED\n");
+		scr_idle_return_screen();
+	} break;
 
-	case AC_DISPLAY_BUTON_UP_RELEASED: {
-		APP_DBG_SIG("AC_DISPLAY_BUTON_UP_RELEASED\n");
+	case AC_DISPLAY_BUTON_UP_PRESSED: {
+		APP_DBG_SIG("AC_DISPLAY_BUTON_UP_PRESSED\n");
 		ball new_ball;
 		new_ball.id = ball::total++;
 
@@ -140,24 +150,21 @@ void scr_idle_handle(ak_msg_t* msg) {
 			v_idle_ball.push_back(new_ball);
 		}
 		else {
-			BUZZER_PlayTones(tones_3beep);
+			BUZZER_PlaySound(BUZZER_SOUND_3BEEP);
 		}
-	}
-		break;
+	} break;
 
-	case AC_DISPLAY_BUTON_DOWN_RELEASED: {
-		APP_DBG_SIG("AC_DISPLAY_BUTON_DOWN_RELEASED\n");
+	case AC_DISPLAY_BUTON_DOWN_PRESSED: {
+		APP_DBG_SIG("AC_DISPLAY_BUTON_DOWN_PRESSED\n");
 		if (v_idle_ball.size()) {
 			ball::total--;
 			v_idle_ball.pop_back();
 		}
 
 		if (v_idle_ball.empty()) {
-			timer_remove_attr(AC_TASK_DISPLAY_ID, AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE);
-			SCREEN_TRAN(scr_es35sw_th_sensor_handle, &scr_es35sw_th_sensor);
+			scr_idle_return_screen();
 		}
-	}
-		break;
+	} break;
 
 	default:
 		break;
