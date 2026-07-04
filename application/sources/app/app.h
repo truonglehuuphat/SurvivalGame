@@ -177,6 +177,33 @@ enum {
 };
 
 /*****************************************************************************/
+/*  Space ship game 'SCREEN' task define
+ */
+/*****************************************************************************/
+#define AR_GAME_SPACESHIP_TIME_TICK_INTERVAL		(70)
+#define AR_GAME_SPACESHIP_TIME_EXIT_INTERVAL		(5000)
+
+enum {
+	AR_GAME_SPACESHIP_SCREEN_TIME_TICK = AR_GAME_DEFINE_SIG,
+	AR_GAME_SPACESHIP_SCREEN_RESET,
+	AR_GAME_SPACESHIP_SCREEN_EXIT_GAME,
+};
+
+/*****************************************************************************/
+/*  Space ship game 'SPACESHIP' task define
+ */
+/*****************************************************************************/
+enum {
+	AR_GAME_SPACESHIP_SETUP = AR_GAME_DEFINE_SIG,
+	AR_GAME_SPACESHIP_UPDATE,
+	AR_GAME_SPACESHIP_MOVE_UP,
+	AR_GAME_SPACESHIP_MOVE_DOWN,
+	AR_GAME_SPACESHIP_MOVE_LEFT,
+	AR_GAME_SPACESHIP_MOVE_RIGHT,
+	AR_GAME_SPACESHIP_RESET,
+};
+
+/*****************************************************************************/
 /* DBG task define
  */
 /*****************************************************************************/

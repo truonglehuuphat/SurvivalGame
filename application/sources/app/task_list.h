@@ -61,6 +61,11 @@ enum {
 
 	/* EOT polling task ID */
 	AK_TASK_POLLING_EOT_ID,
+
+	/* GAME ID */
+	AR_GAME_SPACESHIP_ID,
+	AR_GAME_SPACESHIP_SCREEN_ID
+
 };
 
 /*****************************************************************************/
@@ -99,4 +104,7 @@ extern void task_rf24_demo(ak_msg_t*);
 extern void task_polling_zigbee();
 extern void task_polling_console();
 
+/* GAME HANDLE */
+extern void ar_game_spaceship_handle(ak_msg_t*);
+extern void scr_game_space_ship_handle(ak_msg_t*);
 #endif //__TASK_LIST_H__
