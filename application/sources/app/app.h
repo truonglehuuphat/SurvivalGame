@@ -133,15 +133,7 @@ enum {
 /* define timer */
 #define AC_DISPLAY_INITIAL_INTERVAL									(100)
 #define AC_DISPLAY_STARTUP_INTERVAL									(2000)
-#define AC_DISPLAY_LOGO_INTERVAL									(10000)
-#define AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE_INTERAL				(150)
-#define AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SNOW_MOVING_UPDATE_INTERAL	(150)
-#define AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SLEEP_INTERVAL				(15000)
-#define AC_DISPLAY_SHOW_MODBUS_PULL_INTERVAL						(1500)
-#define AC_DISPLAY_SHOW_MODBUS_PULL_SLEEP_INTERVAL					(30000)
 #define AC_DISPLAY_MINIMUM_SCREEN_RENDER_INTERVAL_MS				(50) /* 50ms => Max 20 FPS */
-#define AC_DISPLAY_IDLE_INTERVAL									(15000)
-#define AC_DISPLAY_WELCOME_TEXT_ANIM_TICK_INTERVAL					(120)
 
 /* define signal */
 enum {
@@ -150,16 +142,11 @@ enum {
 	AC_DISPLAY_BUTON_MODE_PRESSED,
 	AC_DISPLAY_BUTON_UP_PRESSED,
 	AC_DISPLAY_BUTON_DOWN_PRESSED,
+	AC_DISPLAY_BUTON_UP_LONG_PRESSED,
+	AC_DISPLAY_BUTON_DOWN_LONG_PRESSED,
 	AC_DISPLAY_SHOW_LOGO,
-	AC_DISPLAY_SHOW_IDLE,
-	AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE,
-	AC_DISPLAY_WELCOME_TEXT_ANIM_TICK,
 	AC_DISPLAY_SHOW_FW_UPDATE,
 	AC_DISPLAY_SHOW_FW_UPDATE_ERR,
-	AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SNOW_MOVING_UPDATE,
-	AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SLEEP,
-	AC_DISPLAY_SHOW_MODBUS_PULL_UPDATE,
-	AC_DISPLAY_SHOW_MODBUS_PULL_SLEEP
 };
 
 /*****************************************************************************/
@@ -174,33 +161,6 @@ enum {
 	AC_ZIGBEE_START_COODINATOR,
 	AC_ZIGBEE_PERMIT_JOINING_REQ,
 	AC_ZIGBEE_ZCL_CMD_HANDLER
-};
-
-/*****************************************************************************/
-/*  Space ship game 'SCREEN' task define
- */
-/*****************************************************************************/
-#define AR_GAME_SPACESHIP_TIME_TICK_INTERVAL		(70)
-#define AR_GAME_SPACESHIP_TIME_EXIT_INTERVAL		(5000)
-
-enum {
-	AR_GAME_SPACESHIP_SCREEN_TIME_TICK = AR_GAME_DEFINE_SIG,
-	AR_GAME_SPACESHIP_SCREEN_RESET,
-	AR_GAME_SPACESHIP_SCREEN_EXIT_GAME,
-};
-
-/*****************************************************************************/
-/*  Space ship game 'SPACESHIP' task define
- */
-/*****************************************************************************/
-enum {
-	AR_GAME_SPACESHIP_SETUP = AR_GAME_DEFINE_SIG,
-	AR_GAME_SPACESHIP_UPDATE,
-	AR_GAME_SPACESHIP_MOVE_UP,
-	AR_GAME_SPACESHIP_MOVE_DOWN,
-	AR_GAME_SPACESHIP_MOVE_LEFT,
-	AR_GAME_SPACESHIP_MOVE_RIGHT,
-	AR_GAME_SPACESHIP_RESET,
 };
 
 /*****************************************************************************/

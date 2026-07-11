@@ -19,7 +19,7 @@ FLASH_BASE_ADDR_VAL = 0x08000000
 NAME_MODULE = ak-base-kit-stm32l151-application
 PROJECT = $(NAME_MODULE)
 
-GCC_PATH			= $(HOME)/workspace/tools/gcc-arm-none-eabi-10.3-2021.10
+GCC_PATH			= $(HOME)/Workspace/Tools/gcc-arm-none-eabi-10.3-2021.10
 PROGRAMER_PATH		= $(HOME)/workspace/tools/STM32CubeProgrammer/bin
 OPENOCD_CFG_PATH	= /usr/local/share/openocd/scripts/board/stm32ldiscovery.cfg
 
@@ -63,7 +63,7 @@ IF_NETWORK_NRF24_OPTION = -UIF_NETWORK_NRF24_EN
 
 # Task compile option.
 TASK_ZIGBEE_OPTION = -UTASK_ZIGBEE_EN
-TASK_MBMASTER_OPTION = -DTASK_MBMASTER_EN
+TASK_MBMASTER_OPTION = -UTASK_MBMASTER_EN
 
 # Include sources file
 include sources/ak/Makefile.mk

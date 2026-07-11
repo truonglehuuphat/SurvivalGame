@@ -1,3 +1,9 @@
+<div align="center">
+  
+![Repo Traffic](https://komarev.com/ghpvc/?username=ak-base-kit-stm32l151&label=Repo+Traffic&color=blue&style=flat-square)
+
+</div>
+
 # AK Embedded Base Kit - STM32L151
 
 [<img src="hardware/images/ak-foundation-logo.png" width="240"/>](https://github.com/the-ak-foundation)
@@ -48,5 +54,6 @@ ak_flash /dev/ttyUSB0 ak-base-kit-stm32l151-application.bin 0x08003000
 
 | Topic | Link |
 | ------ | ------ |
+| Training course | <https://github.com/the-ak-foundation/embedded-training-program> |
 | Tutorials | <https://epcb.vn/blogs/ak-embedded-software> |
 | Vendor | <https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu> |
